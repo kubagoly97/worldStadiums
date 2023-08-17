@@ -4,9 +4,9 @@ const router = express.Router({ mergeParams: true });
 const reviews = require('../controllers/reviews');
 const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
-const Campground = require('../models/campground');
+const Stadium = require('../models/stadium');
 const Review = require('../models/review');
-const campgroundSchema = require('../schemas');
+const stadiumSchema = require('../schemas');
 const reviewSchema = require('../reviewSchema');
 const { isLoggedIn, validateReview, isReviewAuthor } = require('../middleware');
 

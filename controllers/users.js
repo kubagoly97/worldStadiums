@@ -11,8 +11,8 @@ module.exports.registerUser = async (req, res, next) => {
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, err => {
             if (err) return next(err);
-            req.flash('success', `Welcome to Yelp Camp, ${req.user.username.toUpperCase()}`);
-            res.redirect('/campgrounds')
+            req.flash('success', `Welcome to World Stadiums, ${req.user.username.toUpperCase()}`);
+            res.redirect('/stadiums')
         });
     } catch (e) {
         req.flash('error', e.message);
@@ -26,7 +26,7 @@ module.exports.loginPage = (req, res) => {
 
 module.exports.getLogin = (req, res) => {
     req.flash('success', `Welcome back, ${req.user.username.toUpperCase()}`);
-    const redirectUrl = res.locals.returnTo || '/campgrounds';
+    const redirectUrl = res.locals.returnTo || '/stadiums';
     res.redirect(redirectUrl)
 };
 
@@ -36,6 +36,6 @@ module.exports.getLogout = (req, res, next) => {
             return next(err);
         }
         req.flash('success', 'You are loged out')
-        res.redirect('/campgrounds')
+        res.redirect('/stadiums')
     })
 }

@@ -16,12 +16,12 @@ const User = require('./models/user');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
-const campgroundRoutes = require('./routes/campgrounds');
+const stadiumRoutes = require('./routes/stadiums');
 const reviewRoutes = require('./routes/reviews');
 const MongoStore = require('connect-mongo');
 
 // const dbUrl = process.env.DB_URL;
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/world-stadiums';
 
 main().catch(err => console.log(err));
 
@@ -146,8 +146,8 @@ app.get('/fakeUser', async (req, res) => {
 })
 
 app.use('/', userRoutes);
-app.use('/campgrounds', campgroundRoutes);
-app.use('/campgrounds/:id/reviews', reviewRoutes);
+app.use('/stadiums', stadiumRoutes);
+app.use('/stadiums/:id/reviews', reviewRoutes);
 
 app.get('/', (req, res) => {
     res.render('home')

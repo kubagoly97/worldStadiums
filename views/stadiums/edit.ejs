@@ -2,37 +2,36 @@
     <div class="row">
         <h1 class="text-center">Edit</h1>
         <div class="col-md-6 offset-md-3 mb-3">
-            <form action="/campgrounds/<%=id%>?_method=put" method='POST' novalidate class="validated-form"
+            <form action="/stadiums/<%=id%>?_method=put" method='POST' novalidate class="validated-form"
                 enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <input class="form-control" type="text" id="title" name="campground[title]"
-                        value="<%=campground.title%>" required>
+                    <input class="form-control" type="text" id="title" name="stadium[title]" value="<%=stadium.title%>"
+                        required>
                     <div class="invalid-feedback">Please put a name</div>
                     <div class="valid-feedback">NICE</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
-                    <input class="form-control" type="text" id="location" name="campground[location]"
-                        value="<%=campground.location%>" required>
+                    <input class="form-control" type="text" id="location" name="stadium[location]"
+                        value="<%=stadium.location%>" required>
                     <div class="invalid-feedback">Location first!</div>
                     <div class="valid-feedback">NICE</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="price">Campground Price</label>
+                    <label class="form-label" for="price">Stadium Ticket Price</label>
                     <div class="input-group">
                         <span class="input-group-text" id="price-label">PLN</span>
                         <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
-                            aria-describedby="price-label" name="campground[price]" value="<%=campground.price%>"
-                            required>
+                            aria-describedby="price-label" name="stadium[price]" value="<%=stadium.price%>" required>
                         <div class="invalid-feedback">Please put a price</div>
                         <div class="valid-feedback">NICE</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" type="text" id="description" name="campground[description]"
-                        required><%=campground.description%></textarea>
+                    <textarea class="form-control" type="text" id="description" name="stadium[description]"
+                        required><%=stadium.description%></textarea>
                     <div class="invalid-feedback">Please put a description</div>
                     <div class="valid-feedback">NICE</div>
                 </div>
@@ -41,7 +40,7 @@
                     <input type="file" class="form-control" id="formFileMultiple" name="image" multiple>
                 </div>
                 <div class="mb-3">
-                    <% campground.images.forEach(function(img,i){ %>
+                    <% stadium.images.forEach(function(img,i){ %>
                         <img src="<%=img.thumbnail%>" class="img-thumbnail">
                         <div class="form-check-inline">
                             <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
@@ -49,9 +48,9 @@
                         <label for="image-<%=i%>">Delete?</label>
                         <% }) %>
                 </div>
-                <button class="btn btn-info mb-3">Update Campground</button>
+                <button class="btn btn-info mb-3">Update Stadium</button>
             </form>
-            <a href="/campgrounds/<%=id%>" class="btn btn-warning">Stop editing</a>
+            <a href="/stadiums/<%=id%>" class="btn btn-warning">Stop editing</a>
         </div>
     </div>
 

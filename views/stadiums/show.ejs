@@ -6,13 +6,13 @@
                 <!-- <img src="" class="card-img-top" alt="..."> -->
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
-                        <% campground.images.forEach((img,i)=>{ %>
+                        <% stadium.images.forEach((img,i)=>{ %>
                             <div class="carousel-item <%=i===0?'active':'' %>">
                                 <img crossorigin="anonymous" src="<%=img.url%>" class="d-block w-100" alt="...">
                             </div>
                             <% }) %>
                     </div>
-                    <% if(campground.images.length> 1){ %>
+                    <% if(stadium.images.length> 1){ %>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -28,33 +28,33 @@
 
                 <div class="card-body">
                     <h5 class="card-title">
-                        <%=campground.title%>
+                        <%=stadium.title%>
                     </h5>
                     <p class="card-text">
-                        <%=campground.description %>
+                        <%=stadium.description %>
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-muted">
-                        <%=campground.location%>
+                        <%=stadium.location%>
                     </li>
                     <li class="list-group-item">
-                        Added by <%=campground.author.username%>
+                        Added by <%=stadium.author.username%>
                     </li>
                     <li class="list-group-item">
-                        Price: <%= campground.price %>,- /night
+                        Price: <%= stadium.price %>,- for ticket
                     </li>
                 </ul>
-                <% if(currentUser && campground.author.equals(currentUser._id)){ %>
+                <% if(currentUser && stadium.author.equals(currentUser._id)){ %>
                     <div class="card-body">
-                        <form class="d-inline" action="/campgrounds/<%=id%>?_method=DELETE" method="POST">
+                        <form class="d-inline" action="/stadiums/<%=id%>?_method=DELETE" method="POST">
                             <button class="btn btn-danger">Delete</button>
                         </form>
-                        <a href="/campgrounds/<%=id%>/edit" class="card-link btn btn-info">Edit</a>
+                        <a href="/stadiums/<%=id%>/edit" class="card-link btn btn-info">Edit</a>
                     </div>
                     <% } %>
                         <div class="card-footer text-body-secondary">
-                            <a href="/campgrounds">All Campgrounds</a>
+                            <a href="/stadiums">All Stadiums</a>
                         </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             <div id='map' class="mb-3"></div>
             <% if(currentUser){ %>
                 <h2>Leave a reaview</h2>
-                <form action="/campgrounds/<%=id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
+                <form action="/stadiums/<%=id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
                     <div class="mb-3">
                         <fieldset class="starability-basic">
                             <legend></legend>
@@ -95,7 +95,7 @@
                 </form>
                 <% } %>
                     <h3>Reviews!</h3>
-                    <% for(let review of campground.reviews){%>
+                    <% for(let review of stadium.reviews){%>
                         <div class="card mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">
@@ -111,8 +111,7 @@
                                     <%=review.body%>
                                 </p>
                                 <% if(currentUser && review.author.equals(currentUser._id)){ %>
-                                    <form
-                                        action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
+                                    <form action="/stadiums/<%=stadium._id%>/reviews/<%=review._id%>?_method=DELETE"
                                         method="POST">
                                         <button class="btn btn-sm btn-danger">Delete</button>
                                     </form>
@@ -126,7 +125,7 @@
 
     <script>
         const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
-        let campground = <%- JSON.stringify(campground) %>; 
+        let stadium = <%- JSON.stringify(stadium) %>; 
     </script>
 
     <script src="/javascripts/showPageMap.js"></script>

@@ -24,8 +24,8 @@ const extension = (joi) => ({
 
 const Joi = BaseJoi.extend(extension);
 
-const campgroundSchema = Joi.object({
-    campground: Joi.object({
+const stadiumSchema = Joi.object({
+    stadium: Joi.object({
         title: Joi.string().required().escapeHTML(),
         price: Joi.number().required().min(0),
         // images: Joi.string().required(),
@@ -35,12 +35,5 @@ const campgroundSchema = Joi.object({
     deleteImages: Joi.array()
 });
 
-// campgroundSchema.post('findOneAndDelete', async function (campground) {
-//     if (campground.reviews.length) {
-//         const res = await Review.deleteMany({ _id: { $in: campground.reviews } });
-//         console.log(res);
-//     }
-// })
-
-module.exports = campgroundSchema;
+module.exports = stadiumSchema;
 

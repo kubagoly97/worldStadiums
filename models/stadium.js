@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Review = require('./review');
 const { Schema } = mongoose;
 
-// https://res.cloudinary.com/dctw1fiot/image/upload/w_300/v1688476978/YelpCamp/yflzamiz2vds4hymngni.jpg
+// https://res.cloudinary.com/dctw1fiot/image/upload/w_300/v1688476978/WorldStadiums/yflzamiz2vds4hymngni.jpg
 
 const ImageSchema = new Schema({
     url: String,
@@ -15,7 +15,7 @@ ImageSchema.virtual('thumbnail').get(function () {
 
 const opts = { toJSON: { virtuals: true } };
 
-const CampgroundSchema = new Schema({
+const StadiumSchema = new Schema({
     title: String,
     images: [ImageSchema],
     geometry: {
@@ -44,17 +44,17 @@ const CampgroundSchema = new Schema({
     ]
 }, opts);
 
-CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
-    return `<strong><a href='/campgrounds/${this._id}'>${this.title}</a></strong>
+StadiumSchema.virtual('properties.popUpMarkup').get(function () {
+    return `<strong><a href='/stadiums/${this._id}'>${this.title}</a></strong>
     <p>${this.description.substring(0, 30)}...`
 });
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
+StadiumSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Review.deleteMany({ _id: { $in: doc.reviews } })
     }
 })
 
-const Campground = mongoose.model('Campground', CampgroundSchema);
+const Stadium = mongoose.model('Stadium', StadiumSchema);
 
-module.exports = Campground;
+module.exports = Stadium;
