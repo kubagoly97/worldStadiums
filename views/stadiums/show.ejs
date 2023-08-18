@@ -44,6 +44,9 @@
                     <li class="list-group-item">
                         Price: <%= stadium.price %>,- for ticket
                     </li>
+                    <li class="list-group-item">
+                        League: <%= stadium.league %>
+                    </li>
                 </ul>
                 <% if(currentUser && stadium.author.equals(currentUser._id)){ %>
                     <div class="card-body">

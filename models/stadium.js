@@ -18,6 +18,7 @@ const opts = { toJSON: { virtuals: true } };
 const StadiumSchema = new Schema({
     title: String,
     images: [ImageSchema],
+    league: String,
     geometry: {
         type: {
             type: String,

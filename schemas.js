@@ -28,6 +28,7 @@ const stadiumSchema = Joi.object({
     stadium: Joi.object({
         title: Joi.string().required().escapeHTML(),
         price: Joi.number().required().min(0),
+        league: Joi.string().escapeHTML(),
         // images: Joi.string().required(),
         description: Joi.string().required().escapeHTML(),
         location: Joi.string().required().escapeHTML()
