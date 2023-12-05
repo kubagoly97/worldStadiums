@@ -54,7 +54,7 @@ npm install
 4. Run the application:
 
 ```bash
-npm start
+nodemon
 ```
 
 Visit [http://localhost:3000](http://localhost:3000) to explore World Stadiums!
