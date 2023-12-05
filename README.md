@@ -70,3 +70,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Happy exploring the world of football stadiums with World Stadiums! ⚽🏟️
+
+<img width="1440" alt="Zrzut ekranu 2023-12-5 o 12 09 12" src="https://github.com/kubagoly97/worldStadiums/assets/142389870/9e9b9bd4-6393-4ffd-aafe-c993c3868061">
+<img width="1552" alt="Zrzut ekranu 2023-12-5 o 11 37 28" src="https://github.com/kubagoly97/worldStadiums/assets/142389870/53499fd1-0b51-45ce-81c4-8bea44c96d55">
+
