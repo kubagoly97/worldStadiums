@@ -27,7 +27,7 @@ Make sure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/world-stadiums.git
+git clone https://github.com/kubagoly97/worldStadiums.git
 cd world-stadiums
 ```
 
